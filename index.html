@@ -1,275 +1,374 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>금강산대게횟집 7월 성수기 포장 전략 요약본</title>
-<style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>금강산대게횟집 7월 포장 선택 구조 5P</title>
+  <style>
 :root{
-  --bg:#fdf9f1;
-  --paper:#fffdf8;
-  --surface:#f7f3eb;
-  --surface2:#ece8e0;
-  --ink:#1c1c17;
-  --muted:#655850;
-  --soft:#d8ccc0;
-  --line:#d1c4bf;
-  --deep:#15110e;
-  --brown:#4a3528;
-  --gold:#b98645;
-  --green:#1f8f5a;
-  --green2:#e9f6ee;
-  --blue:#315f76;
-  --red:#9d463b;
+  --outer:#202521;
+  --outer-dot:rgba(255,255,255,.15);
+  --field:#fbf5e6;
+  --field-2:#fff8e9;
+  --surface:#eae2cf;
+  --surface-2:#f2ead8;
+  --anchor:#15231f;
+  --anchor-2:#1d2c27;
+  --anchor-soft:#53625b;
+  --accent:#a47a33;
+  --accent-soft:#d1aa55;
+  --ink:#151914;
+  --muted:#666a60;
+  --line:#ded4bf;
+  --shadow:0 28px 80px rgba(0,0,0,.32);
+  --radius:12px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;
-  background:linear-gradient(180deg,#f2eee7 0%, #fdf9f1 42%, #f0e9dd 100%);
+  background:
+    radial-gradient(circle at 1px 1px,var(--outer-dot) 1px,transparent 0) 0 0/24px 24px,
+    linear-gradient(180deg,#222823 0%,var(--outer) 100%);
   color:var(--ink);
-  font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.56;
   letter-spacing:-.035em;
+  word-break:keep-all;
 }
-a{color:inherit;text-decoration:none}
-.print-btn{
-  position:fixed;right:22px;bottom:22px;z-index:99;
-  border:0;border-radius:999px;background:var(--deep);color:#fffdf8;
-  padding:13px 18px;font-weight:900;box-shadow:0 14px 40px rgba(0,0,0,.22);cursor:pointer;
+.wrap{width:min(1180px,calc(100% - 28px));margin:24px auto 80px}
+.toolbar{display:flex;justify-content:flex-end;margin-bottom:14px}
+.btn{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fbf5e6;padding:10px 15px;border-radius:999px;font-size:13px;font-weight:850;cursor:pointer;backdrop-filter:blur(8px)}
+.page{
+  width:100%;min-height:840px;
+  background:
+    radial-gradient(circle at 85% 8%,rgba(164,122,51,.07),transparent 28%),
+    linear-gradient(180deg,var(--field) 0%,var(--field-2) 100%);
+  border:1px solid rgba(222,212,191,.95);
+  border-radius:var(--radius);
+  overflow:hidden;
+  margin-bottom:30px;
+  box-shadow:var(--shadow);
+  display:flex;flex-direction:column;
+  page-break-after:always;
+  position:relative;
 }
-.nav{
-  position:sticky;top:0;z-index:40;
-  width:min(860px,calc(100% - 32px));margin:0 auto;
-  height:64px;display:flex;align-items:center;justify-content:space-between;
-  backdrop-filter:blur(12px);background:rgba(253,249,241,.86);
-  border-bottom:1px solid rgba(209,196,191,.5);
-}
-.brand{font-weight:900;font-size:22px;letter-spacing:-.06em}
-.navlinks{display:flex;gap:18px;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800}
-.wrap{width:min(860px,calc(100% - 32px));margin:0 auto;padding:28px 0 56px}
-.hero{
-  position:relative;height:560px;overflow:hidden;border-radius:28px;
-  box-shadow:0 24px 70px rgba(54,35,19,.14);background:#111;
-}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.98) contrast(1.02)}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.28) 45%,rgba(0,0,0,.08) 100%),linear-gradient(0deg,rgba(0,0,0,.66) 0%,rgba(0,0,0,0) 52%);}
-.hero-copy{
-  position:absolute;z-index:2;left:30px;bottom:30px;width:min(560px,calc(100% - 60px));
-  padding:24px;border:1px solid rgba(255,255,255,.14);border-radius:18px;
-  background:rgba(21,17,14,.62);backdrop-filter:blur(7px);
-}
-.eyebrow{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.14em;color:#f2c483;margin-bottom:10px}
-h1{margin:0 0 14px;font-size:clamp(31px,5vw,48px);line-height:1.12;color:#fff;letter-spacing:-.07em}
-.hero-copy p{margin:0;color:#f4eee7;font-size:16px;line-height:1.65;word-break:keep-all}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.chip{font-size:12px;color:#fff8ec;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);border-radius:999px;padding:7px 10px;font-weight:800}
-section{margin-top:42px}
-.section-head{margin-bottom:18px}
-.kicker{font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
-h2{font-size:clamp(25px,4vw,34px);line-height:1.28;letter-spacing:-.06em;margin:0;color:var(--ink)}
-.lead{margin:10px 0 0;color:var(--muted);font-size:15px;line-height:1.7;word-break:keep-all}
-.grid{display:grid;gap:16px}
-.grid-3{grid-template-columns:repeat(3,1fr)}
-.grid-4{grid-template-columns:repeat(4,1fr)}
-.grid-2{grid-template-columns:1fr 1fr}
-.card{background:var(--paper);border:1px solid rgba(209,196,191,.7);border-radius:20px;padding:20px;box-shadow:0 10px 28px rgba(64,42,24,.06)}
-.card.dark{background:var(--deep);color:#fff8ec;border-color:rgba(255,255,255,.1)}
-.card.green{background:var(--green2);border-color:#b7dfc8}
-.card h3{margin:0 0 8px;font-size:19px;line-height:1.32;letter-spacing:-.05em}
-.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.65;word-break:keep-all}
-.card.dark p{color:#e6dacf}
-.price{font-size:30px;font-weight:950;letter-spacing:-.055em;margin:6px 0 10px;color:var(--deep)}
-.dark .price{color:#fff}
-.tag{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:6px 9px;background:#f0e6d6;color:var(--brown);font-size:12px;font-weight:900;margin-bottom:12px}
-.summary-band{
-  display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:stretch;
-  background:var(--surface);border:1px solid rgba(209,196,191,.7);border-radius:24px;padding:18px;box-shadow:0 12px 32px rgba(64,42,24,.06);
-}
-.summary-band .big{padding:18px 18px 10px}
-.quote{font-size:25px;line-height:1.35;letter-spacing:-.06em;font-weight:900;margin:0 0 12px}
-.bullet{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px solid rgba(209,196,191,.58);font-size:14px;line-height:1.55;color:var(--muted);word-break:keep-all}
-.dot{width:22px;height:22px;border-radius:999px;background:var(--deep);color:white;display:grid;place-items:center;font-size:12px;flex:0 0 22px;font-weight:900;margin-top:1px}
-.image-card{position:relative;overflow:hidden;border-radius:24px;background:#ddd;min-height:270px;box-shadow:0 12px 35px rgba(64,42,24,.08)}
-.image-card img{width:100%;height:100%;object-fit:cover;display:block}
-.image-card.tall{min-height:520px}
-.caption{position:absolute;left:14px;bottom:14px;background:rgba(21,17,14,.66);color:#fff;padding:10px 12px;border-radius:12px;font-size:12px;font-weight:800;backdrop-filter:blur(5px)}
-.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.price-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 16px;min-height:166px;position:relative;overflow:hidden}
-.price-card::before{content:"";position:absolute;right:-30px;top:-30px;width:90px;height:90px;border-radius:999px;background:rgba(185,134,69,.12)}
-.price-card.reco{border-color:#c79a5e;background:#fff8ed}
-.price-card small{display:inline-block;font-size:12px;font-weight:900;color:var(--gold);margin-bottom:8px}
-.price-card h3{margin:0 0 8px;font-size:18px;letter-spacing:-.05em}
-.price-card strong{display:block;font-size:27px;letter-spacing:-.06em;margin-bottom:8px}
-.price-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.55;word-break:keep-all}
-.img-full{width:100%;border-radius:24px;border:1px solid rgba(209,196,191,.65);box-shadow:0 16px 40px rgba(64,42,24,.09);display:block}
-.process{display:grid;gap:12px;counter-reset:step}
-.step{counter-increment:step;display:grid;grid-template-columns:40px 1fr;gap:12px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px}
-.step::before{content:counter(step);width:36px;height:36px;border-radius:999px;background:var(--deep);color:white;display:grid;place-items:center;font-weight:900}
-.step strong{display:block;margin-bottom:3px}
-.step span{display:block;color:var(--muted);font-size:13px;line-height:1.55;word-break:keep-all}
-.checks{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.check{display:flex;gap:10px;padding:13px;border-radius:14px;border:1px solid var(--line);background:#fff}
-.check::before{content:"✓";width:22px;height:22px;border-radius:999px;background:var(--green);color:white;display:grid;place-items:center;font-weight:900;flex:0 0 22px;font-size:13px;margin-top:1px}
-.check strong{display:block;font-size:14px;margin-bottom:2px}
-.check span{display:block;color:var(--muted);font-size:13px;line-height:1.5;word-break:keep-all}
-.final{margin-top:42px;background:linear-gradient(135deg,#15110e 0%,#402d22 100%);border-radius:24px;padding:26px;color:#fff8ec;box-shadow:0 18px 48px rgba(25,17,10,.18)}
-.final h2{color:#fff;margin-bottom:10px}
-.final p{margin:0;color:#eadfce;line-height:1.75;word-break:keep-all}
-.note{font-size:12px;color:var(--muted);line-height:1.55;margin-top:10px}
-.footer{padding:32px 0 10px;color:var(--muted);font-size:12px;text-align:center}
-@media(max-width:760px){
-  .print-btn{display:none}
-  .nav{width:calc(100% - 24px)}
-  .navlinks{display:none}
-  .wrap{width:calc(100% - 24px);padding-top:16px}
-  .hero{height:560px;border-radius:22px}
-  .hero-copy{left:16px;bottom:16px;width:calc(100% - 32px);padding:18px}
-  .summary-band,.grid-2,.grid-3,.grid-4,.price-grid,.checks{grid-template-columns:1fr}
-  .image-card.tall{min-height:430px}
-  .card,.price-card{padding:17px}
+.page:before{content:"";position:absolute;inset:0;pointer-events:none;border:1px solid rgba(255,255,255,.52);border-radius:var(--radius)}
+.nav{height:64px;border-bottom:1px solid rgba(222,212,191,.92);display:flex;align-items:center;justify-content:space-between;padding:0 52px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#76786e;position:relative;z-index:1}
+.brand{font-family:Georgia,"Times New Roman",serif;color:#2f3d37;font-size:18px;font-weight:700;letter-spacing:.12em}
+.nav-meta{display:flex;gap:30px;align-items:center;font-weight:850}
+.content{flex:1;padding:58px 76px 72px;position:relative;z-index:1}
+.footer{height:66px;background:var(--anchor-soft);color:#fff8e8;display:flex;align-items:center;justify-content:space-between;padding:0 52px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;position:relative;z-index:1}
+.footer .brand-small{font-family:Georgia,"Times New Roman",serif;font-size:16px;font-weight:700;letter-spacing:.1em}
+.caption{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:950;margin-bottom:15px}
+h1{margin:0;font-size:56px;line-height:1.08;letter-spacing:-.075em;font-weight:950;color:var(--ink)}
+h2{margin:0;font-size:34px;line-height:1.15;letter-spacing:-.06em;font-weight:950}
+h3{margin:0;font-size:20px;line-height:1.25;letter-spacing:-.048em;color:#252821}
+p{margin:0;color:var(--muted)}
+.lead{margin:18px 0 0;color:var(--muted);font-size:17px;line-height:1.75;max-width:720px;letter-spacing:-.025em}
+.gold{color:var(--accent-soft);font-weight:950}
+.ink{color:var(--ink);font-weight:950}
+
+.photo-slot{position:relative;overflow:hidden;background:linear-gradient(135deg,#fffaf0,#ede4d3);border:1px solid var(--line);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 12px 34px rgba(39,31,18,.08)}
+.photo-slot.dark{background:linear-gradient(135deg,#26352f,#111a16);border-color:rgba(21,35,31,.88)}
+.photo-slot img{width:100%;height:100%;display:block;object-fit:contain;object-position:center;padding:10px}
+.photo-slot.no-pad img{padding:0}
+.photo-label{position:absolute;top:16px;left:16px;z-index:2;padding:7px 10px;background:rgba(251,245,230,.9);border:1px solid rgba(222,212,191,.9);color:#354039;font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:950}
+.photo-caption{position:absolute;left:18px;right:18px;bottom:18px;padding:11px 13px;background:rgba(21,35,31,.74);backdrop-filter:blur(7px);color:#fff8e8;font-size:13px;line-height:1.45;font-weight:900}
+
+/* Page 01 */
+.hero-grid{display:grid;grid-template-columns:1fr .82fr;gap:34px;align-items:stretch}
+.dark-hero{background:radial-gradient(circle at 93% 85%,rgba(164,122,51,.16),transparent 0 19%,transparent 20%),linear-gradient(135deg,var(--anchor),var(--anchor-2));color:#fff8e8;padding:54px 62px;min-height:458px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;border:1px solid rgba(21,35,31,.8);box-shadow:inset 0 0 0 1px rgba(255,248,231,.045)}
+.dark-hero:before{content:"";position:absolute;left:0;top:0;width:5px;height:100%;background:linear-gradient(180deg,var(--accent),rgba(164,122,51,.16))}
+.dark-hero:after{content:"";position:absolute;right:-84px;bottom:-126px;width:305px;height:305px;border-radius:50%;border:1px solid rgba(164,122,51,.20);box-shadow:0 0 0 44px rgba(164,122,51,.035)}
+.dark-hero h1{color:#fff8e8;max-width:690px}
+.dark-hero .lead{color:#d9dfda;margin-top:20px;position:relative;z-index:1}
+.hero-photo{min-height:458px}
+.hero-photo img{padding:0;object-fit:contain;background:#151914}
+.price-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+.price-tile{background:linear-gradient(180deg,var(--surface-2),#eee5d1);border:1px solid var(--line);padding:18px 18px 16px;min-height:116px;position:relative;overflow:hidden}
+.price-tile:before{content:"";position:absolute;right:-34px;top:-34px;width:96px;height:96px;border-radius:50%;background:rgba(164,122,51,.10)}
+.price-tile.main{background:radial-gradient(circle at 92% 18%,rgba(164,122,51,.12),transparent 32%),linear-gradient(135deg,var(--anchor),var(--anchor-2));color:#fff8e8;border-color:rgba(21,35,31,.8)}
+.price-tile small{display:block;color:var(--accent);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:950;margin-bottom:8px}
+.price-tile.main small{color:var(--accent-soft)}
+.price-tile strong{display:block;color:var(--ink);font-size:25px;letter-spacing:-.065em;margin-bottom:5px}
+.price-tile.main strong{color:#fff8e8}
+.price-tile span{display:block;color:var(--muted);font-size:13px;line-height:1.42;font-weight:760}
+.price-tile.main span{color:#d9dfda}
+.proof-lane{margin:24px auto 0;max-width:900px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;padding:20px 0 10px}
+.proof-lane:before{content:"";position:absolute;left:11%;right:11%;top:29px;height:4px;border-radius:999px;background:linear-gradient(90deg,#d7c9ad 0%,#b08a3e 45%,#53625b 100%)}
+.proof-step{position:relative;text-align:center;z-index:1;display:flex;flex-direction:column;align-items:center;gap:11px;color:#545850;font-size:13px;font-weight:900}
+.proof-dot{width:21px;height:21px;border-radius:50%;background:var(--field);border:5px solid #d7c9ad}
+.proof-step:last-child .proof-dot{width:28px;height:28px;margin-top:-3px;border-color:var(--anchor);background:var(--anchor);box-shadow:0 0 0 8px rgba(164,122,51,.12)}
+
+/* Page 02 */
+.center-page{display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:flex-start;padding-top:8px}
+.center-page h1{max-width:850px;font-size:56px}
+.center-page .lead{text-align:center;margin-top:18px;font-size:17px;max-width:670px}
+.scene-board{display:grid;grid-template-columns:.86fr 1.14fr;gap:26px;width:100%;margin:38px auto 26px;align-items:stretch}
+.scene-copy{border:1px solid var(--line);background:linear-gradient(180deg,#f7f0df,#f0e7d2);padding:30px;display:flex;flex-direction:column;justify-content:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}
+.scene-copy h2{font-size:34px;margin-bottom:18px}
+.scene-copy p{font-size:15px;line-height:1.76;font-weight:760;color:#5e625a}
+.compare-photo{height:394px;background:#f8f0df}
+.compare-photo img{padding:14px}
+.journey-panel{width:100%;max-width:980px;margin:0 auto;padding:30px 28px 26px;border:1px solid var(--line);background:linear-gradient(180deg,#f7f0df 0%,#f0e7d2 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}
+.journey-labels{display:grid;grid-template-columns:repeat(7,1fr);gap:0;position:relative}
+.journey-labels:before{content:"";position:absolute;left:6%;right:6%;top:25px;height:7px;border-radius:999px;background:linear-gradient(90deg,#d5c8ad 0%,#c7aa70 44%,#53625b 100%);z-index:0}
+.journey-step{position:relative;z-index:1;text-align:center;display:flex;flex-direction:column;align-items:center;min-height:108px}
+.journey-dot{width:24px;height:24px;border-radius:50%;background:var(--field);border:5px solid #d4c6ad;margin:14px 0 14px}
+.journey-step.final .journey-dot{width:34px;height:34px;margin:9px 0 9px;background:var(--anchor);border-color:var(--anchor);box-shadow:0 0 0 8px rgba(164,122,51,.14)}
+.journey-step strong{display:block;font-size:13px;font-weight:950;color:#363a34;line-height:1.25}
+.journey-step.final strong{color:var(--anchor);font-size:14px}
+.journey-step span{display:block;margin-top:8px;color:#74766e;font-size:12px;font-weight:800;line-height:1.35;min-height:30px}
+
+/* Page 03 */
+.decision-wrap{text-align:center;padding-top:6px}
+.decision-wrap h1{max-width:850px;margin:0 auto;font-size:52px;line-height:1.12}
+.underline{width:52px;height:1px;background:var(--accent);margin:24px auto 38px}
+.decision-grid{display:grid;grid-template-columns:1fr 88px 1fr;gap:22px;max-width:930px;margin:0 auto 30px;text-align:left;align-items:stretch}
+.decision-card{min-height:238px;padding:32px 34px;border:1px solid var(--line);background:radial-gradient(circle at 90% 15%,rgba(164,122,51,.09),transparent 30%),#f5eedc;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
+.decision-card.dark{background:radial-gradient(circle at 92% 18%,rgba(164,122,51,.12),transparent 32%),linear-gradient(135deg,var(--anchor),var(--anchor-2));color:#fff8e8;border-color:rgba(21,35,31,.9)}
+.decision-card .label{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);font-weight:950;margin-bottom:16px}
+.decision-card.dark .label{color:var(--accent-soft)}
+.decision-card h2{font-size:34px}
+.decision-card p{margin:28px 0 0;padding-top:18px;border-top:1px solid rgba(164,122,51,.35);color:#666961;font-size:14.5px;line-height:1.72}
+.decision-card.dark p{color:#d9dfda}
+.versus{display:flex;align-items:center;justify-content:center;color:var(--accent);font-family:Georgia,"Times New Roman",serif;font-size:28px;font-style:italic}
+.question-box{max-width:790px;margin:0 auto 24px;padding:28px 42px;background:linear-gradient(180deg,#f3ebd8 0%,#eee4cf 100%);border:1px solid #ddd2bc;text-align:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}
+.question-box p{margin:0;color:#42463f;font-size:22px;line-height:1.55;font-weight:850;font-style:italic;letter-spacing:-.045em}
+.menu-line{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:930px;margin:0 auto;text-align:left}
+.menu-item{border:1px solid var(--line);background:#f4ecda;padding:18px 18px 16px}
+.menu-item strong{display:block;font-size:22px;letter-spacing:-.055em;color:#252821;margin-bottom:4px}
+.menu-item span{display:block;color:#6b6e66;font-size:13px;font-weight:780;line-height:1.4}
+
+/* Page 04 */
+.split-head{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:end;margin-bottom:30px}
+.split-head h1{font-size:52px;max-width:520px}
+.split-head .lead{margin:0;max-width:540px;color:#5f625a}
+.visual-two{display:grid;grid-template-columns:1.08fr .92fr;gap:24px;align-items:stretch;margin-bottom:24px}
+.wide-shot{height:292px;background:#f7eedf}
+.phone-shot{height:292px;background:#fffaf0}
+.wide-shot img,.phone-shot img{padding:12px}
+.cobuild-wrap{display:grid;grid-template-columns:1fr 88px 1fr;gap:22px;align-items:stretch;margin-bottom:24px}
+.column-card{border:1px solid var(--line);background:#f4ecda;padding:26px 28px;position:relative;overflow:hidden;min-height:240px}
+.column-card.dark{background:radial-gradient(circle at 92% 12%,rgba(164,122,51,.10),transparent 34%),linear-gradient(135deg,var(--anchor),var(--anchor-2));color:#fff8e8;border-color:rgba(21,35,31,.8)}
+.column-card .label{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);font-weight:950;margin-bottom:16px}
+.column-card.dark .label{color:var(--accent-soft)}
+.column-card h2{margin:0 0 18px;font-size:30px;line-height:1.15;letter-spacing:-.055em}
+.list{display:grid;gap:11px}
+.list-item{display:flex;gap:12px;align-items:flex-start;padding-bottom:11px;border-bottom:1px solid rgba(164,122,51,.18);font-size:14.5px;color:#575a53;line-height:1.52;font-weight:760}
+.column-card.dark .list-item{color:#d8dfd9;border-bottom-color:rgba(255,248,231,.12)}
+.bullet{width:8px;height:8px;border-radius:50%;background:var(--accent);margin-top:8px;flex:0 0 auto}
+.bridge-axis{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--accent);font-weight:950}
+.bridge-axis .line{width:1px;flex:1;background:linear-gradient(180deg,transparent,var(--accent),transparent)}
+.bridge-axis .circle{width:70px;height:70px;border-radius:50%;background:var(--field);border:1px solid rgba(164,122,51,.46);display:grid;place-items:center;text-align:center;font-size:11px;line-height:1.25;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 0 0 8px rgba(164,122,51,.08)}
+.bridge{max-width:820px;margin:0 auto;padding:20px 28px;background:linear-gradient(180deg,#f3ead7,#ede3cd);border:1px solid #ddd2bc;text-align:center;font-size:17px;line-height:1.65;font-weight:850;color:#363a34}
+
+/* Page 05 */
+.diagnostic-head{display:grid;grid-template-columns:.88fr 1.12fr;gap:42px;align-items:end;margin-bottom:34px}
+.diagnostic-head h1{font-size:52px;max-width:500px}
+.diagnostic-head .lead{margin:0;max-width:540px}
+.lens-layout{display:grid;grid-template-columns:1fr 300px 1fr;gap:20px;align-items:stretch;max-width:980px;margin:0 auto 28px}
+.lens-stack{display:grid;gap:16px}
+.lens-card{background:linear-gradient(180deg,#f4ecda 0%,#eee5d1 100%);border:1px solid var(--line);padding:19px 20px;min-height:112px;display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start}
+.lens-card h3{margin:0 0 6px;font-size:18px;line-height:1.25;letter-spacing:-.045em}
+.lens-card p{margin:0;color:#666961;font-size:13.5px;line-height:1.56}
+.lens-num{color:var(--accent);font-size:13px;font-weight:950;letter-spacing:.08em;padding-top:3px}
+.center-lens{background:radial-gradient(circle at 88% 8%,rgba(164,122,51,.13),transparent 32%),linear-gradient(135deg,var(--anchor) 0%,var(--anchor-2) 100%);color:#fff8e8;padding:26px;border:1px solid rgba(21,35,31,.8);display:flex;flex-direction:column;justify-content:center;text-align:center;min-height:372px}
+.center-lens .caption{color:var(--accent-soft)}
+.center-lens h2{margin:0;font-size:29px;line-height:1.28;letter-spacing:-.05em}
+.center-lens p{margin:18px 0 0;color:#d9dfda;font-size:14.5px;line-height:1.78}
+.final-script{max-width:920px;margin:0 auto;padding:22px 28px;background:#f3ead7;border:1px solid #ddd2bc;color:#3f433d}
+.final-script .caption{margin-bottom:10px}
+.final-script p{margin:0;font-size:15px;line-height:1.78;font-weight:760;color:#3f433d}
+
+@media(max-width:940px){
+  .nav,.footer{padding:0 24px}.nav-meta{display:none}.content{padding:42px 24px 52px}
+  h1,.center-page h1,.decision-wrap h1,.split-head h1,.diagnostic-head h1{font-size:40px}
+  .dark-hero{padding:42px 30px;min-height:380px}
+  .hero-grid,.price-strip,.scene-board,.decision-grid,.menu-line,.split-head,.visual-two,.cobuild-wrap,.diagnostic-head,.lens-layout{grid-template-columns:1fr}
+  .versus,.bridge-axis{display:none}.page{min-height:auto}
+  .hero-photo{min-height:330px}.compare-photo{height:340px}.wide-shot,.phone-shot{height:320px}
+  .journey-labels{grid-template-columns:repeat(7,110px);overflow-x:auto;padding-bottom:12px}.journey-labels:before{left:55px;right:auto;width:660px}
 }
 @media print{
-  body{background:#fff}
-  .nav,.print-btn{display:none}
-  .wrap{width:100%;padding:0}
-  section{break-inside:avoid;margin-top:24px}
-  .hero{height:390px;border-radius:0;box-shadow:none}
-  .card,.summary-band,.image-card,.img-full,.final{box-shadow:none}
+  @page{size:A4;margin:10mm}
+  body{background:#fff}.wrap{width:100%;margin:0}.toolbar{display:none}.page{box-shadow:none;border:1px solid #ddd;border-radius:0;min-height:calc(100vh - 20mm);margin-bottom:0}.page:before{display:none}
 }
-</style>
+  </style>
 </head>
 <body>
-<button class="print-btn" onclick="window.print()">PDF 저장 / 인쇄</button>
-<nav class="nav">
-<div class="brand">Geumgangsan</div>
-<div class="navlinks">
-<a href="#price">Price</a><a href="#naver">Naver Order</a><a href="#packaging">Packaging</a>
-</div>
-</nav>
-<div class="wrap">
-<section class="hero">
-<img alt="숙소에서 펼쳐 먹는 대게와 회 포장 구성" src="images/01_packaging_table.png"/>
-<div class="hero-copy">
-<div class="eyebrow">July Peak Season Takeout Plan</div>
-<h1>7월 성수기,<br/>포장은 가격보다 선택지가 먼저입니다</h1>
-<p>5만원으로 단순 인하하기보다, 네이버 주문에서 실속형부터 2인·3인·4인 구성까지 바로 이해되도록 정리하는 제안입니다.</p>
-<div class="chips">
-<span class="chip">네이버 주문 주 퍼널</span>
-<span class="chip">인원별 포장 구성</span>
-<span class="chip">숙소 고객 타깃</span>
-</div>
-</div>
-</section>
-<section>
-<div class="summary-band">
-<div class="big">
-<div class="kicker">Core Message</div>
-<p class="quote">가격을 낮추는 자료가 아니라,<br/>고객이 고르기 쉬운 메뉴 구조를 만드는 자료입니다.</p>
-<div class="bullet"><span class="dot">1</span><span><b>5만원 실속형</b>은 가격 비교 고객의 진입 장벽을 낮추는 입구 상품입니다.</span></div>
-<div class="bullet"><span class="dot">2</span><span><b>2인·3인·4인 구성</b>은 인원수와 식사 상황에 맞춰 선택할 수 있는 기준 상품입니다.</span></div>
-<div class="bullet"><span class="dot">3</span><span><b>네이버 주문 안내</b>와 포장 담음새를 함께 정돈해 성수기 운영을 더 일관되게 만듭니다.</span></div>
-</div>
-<div class="card dark">
-<span class="tag">최종 방향</span>
-<h3>“실속형 + 인원별 구성”으로 정리</h3>
-<p>경쟁사 5만원 상품에 바로 맞추기보다, 5만원 상품은 새롭게 만들고 기존 대표 구성은 2인 기준으로 정리해 객단가와 선택 편의성을 함께 지키는 방향입니다.</p>
-</div>
-</div>
-</section>
-<section id="price">
-<div class="section-head">
-<div class="kicker">01 Price Structure</div>
-<h2>가격 전략은 “인하”가 아니라<br/>“인원별 선택지”입니다.</h2>
-<p class="lead">고객이 메뉴를 보는 순간, 내가 몇 명이고 어떤 양을 선택해야 하는지 바로 이해할 수 있어야 합니다.</p>
-</div>
-<div class="price-grid">
-<div class="price-card">
-<small>경쟁 대응</small>
-<h3>실속 포장 한상</h3>
-<strong>50,000원</strong>
-<p>가격 비교 고객과 첫 주문 고객을 위한 진입 상품</p>
-</div>
-<div class="price-card reco">
-<small>대표 구성</small>
-<h3>2인 대게회상</h3>
-<strong>65,000원</strong>
-<p>기존 한 상 가격을 2인 기준 대표 상품으로 정리</p>
-</div>
-<div class="price-card">
-<small>성수기 추천</small>
-<h3>3인 대게회상</h3>
-<strong>80,000원</strong>
-<p>친구·소형 가족 여행객에게 안내하기 좋은 중간 구성</p>
-</div>
-<div class="price-card">
-<small>가족 여행</small>
-<h3>4인 대게회상</h3>
-<strong>95,000원</strong>
-<p>4인 고객에게 더 분명한 선택지로 안내하는 구성</p>
-</div>
-</div>
-</section>
-<section>
-<div class="section-head">
-<div class="kicker">Visual Guide</div>
-<h2>구성 차이는 말보다 이미지로<br/>한 번에 보여주는 편이 좋습니다.</h2>
-<p class="lead">네이버 주문 상품 이미지와 내부 공유 자료에는 2인·3인·4인 구성이 한눈에 비교되는 이미지를 활용하면 설명이 짧아집니다.</p>
-</div>
-<img alt="2인·3인·4인 회 포장 구성 비교" class="img-full" src="images/02_people_portion_comparison.png"/>
-<p class="note">※ 이미지는 실제 메뉴 확정 전, 구성 방향을 설명하기 위한 예시 이미지입니다.</p>
-</section>
-<section class="grid grid-2" id="naver" style="align-items:center;">
-<div>
-<div class="section-head">
-<div class="kicker">02 Naver Order</div>
-<h2>네이버 주문에서는<br/>상품명·가격·인원 기준을 통일합니다.</h2>
-<p class="lead">주문 화면에서 실속형·2인·3인·4인 구성이 바로 읽히면 전화 문의도 줄고, 직원 응대도 같은 기준으로 맞출 수 있습니다.</p>
-</div>
-<div class="checks">
-<div class="check"><div><strong>상품명</strong><span>실속형 / 2인 / 3인 / 4인 기준으로 통일</span></div></div>
-<div class="check"><div><strong>가격</strong><span>50,000 / 65,000 / 80,000 / 95,000원 명확히 표시</span></div></div>
-<div class="check"><div><strong>설명</strong><span>몇 명이 어떤 상황에서 고르면 좋은지 짧게 안내</span></div></div>
-<div class="check"><div><strong>사진</strong><span>포장 구성 중심 이미지로 메뉴 이해도 강화</span></div></div>
-</div>
-</div>
-<div class="image-card tall"><img alt="네이버 주문 상품 정리 화면 예시" src="images/03_naver_order_mockup.png"/><span class="caption">숙소에서 펼쳤을 때의 포장 첫인상</span></div>
-</section>
-<section class="grid grid-2" id="packaging" style="align-items:start;">
-<div class="image-card tall"><span class="caption">2인·3인·4인 회 포장 구성 비교</span></div>
-<div>
-<div class="section-head">
-<div class="kicker">03 Packaging Standard</div>
-<h2>포장 만족감은<br/>단계별로 보완합니다.</h2>
-<p class="lead">한 번에 큰 변화를 주기보다 현재 구성을 기준으로, 고객이 숙소에서 열었을 때 더 깔끔하게 느껴지는 부분부터 하나씩 다듬어갑니다.</p>
-</div>
-<div class="process">
-<div class="step"><div><strong>대게와 회를 중앙에</strong><span>포장을 열었을 때 메인 메뉴가 가장 먼저 보이도록 담음새 기준을 맞춥니다.</span></div></div>
-<div class="step"><div><strong>곁들임은 보조로 정리</strong><span>반찬·소스·기본품은 먹기 쉽게 분리하되, 메인 구성을 방해하지 않도록 배치합니다.</span></div></div>
-<div class="step"><div><strong>상품 이미지 통일</strong><span>네이버 주문에 올라가는 이미지는 실제 포장 구성 중심으로 맞춰 고객 기대치를 정돈합니다.</span></div></div>
-<div class="step"><div><strong>2주 반응 확인</strong><span>네이버 주문 유입, 포장 문의, 인원별 전환, 객단가를 확인하며 조정합니다.</span></div></div>
-</div>
-</div>
-</section>
-<section>
-<div class="section-head">
-<div class="kicker">04 Execution</div>
-<h2>7월 실행은 5단계로 간단하게 갑니다.</h2>
-</div>
-<div class="grid grid-3">
-<div class="card"><span class="tag">Step 1</span><h3>메뉴명 확정</h3><p>5만원 실속형, 2인 6.5만원, 3인 8만원, 4인 9.5만원으로 구성명을 먼저 맞춥니다.</p></div>
-<div class="card"><span class="tag">Step 2</span><h3>샘플 확인</h3><p>실제 용기에 담아보고 사진 촬영 전 담음새와 양감이 어색하지 않은지 확인합니다.</p></div>
-<div class="card"><span class="tag">Step 3</span><h3>네이버 주문 정돈</h3><p>상품명, 가격, 인원 기준, 짧은 설명, 사진을 같은 기준으로 반영합니다.</p></div>
-<div class="card"><span class="tag">Step 4</span><h3>응대 문구 통일</h3><p>전화 문의가 들어와도 네이버 주문 기준과 같은 가격·인원 구성을 안내합니다.</p></div>
-<div class="card"><span class="tag">Step 5</span><h3>2주 반응 확인</h3><p>유입, 문의 수, 2인·3인·4인 전환, 객단가를 확인하고 필요한 부분만 조정합니다.</p></div>
-<div class="card green"><span class="tag">Point</span><h3>핵심은 쉬운 선택</h3><p>7월 성수기에는 가격 경쟁보다 고객이 네이버 주문에서 구성을 쉽게 이해하도록 만드는 것이 중요합니다.</p></div>
-</div>
-</section>
-<div class="final">
-<h2>최종 제안</h2>
-<p>기존 6.5만원 상품을 바로 5만원으로 낮추기보다, 5만원 실속 포장 상품을 새로 만들고 2인 6.5만원, 3인 8만원, 4인 9.5만원으로 인원별 선택지를 정리하는 방향이 안전합니다. 여기에 네이버 주문 화면과 포장 담음새 기준을 함께 맞추면, 고객은 고르기 쉽고 매장은 성수기 객단가와 응대 기준을 함께 지킬 수 있습니다.</p>
-</div>
-<div class="footer">Prepared by Weplace · Geumgangsan Seafood Packaging Strategy Summary</div>
-</div>
+  <div class="wrap">
+    <div class="toolbar"><button class="btn" onclick="window.print()">인쇄 / PDF 저장</button></div>
+
+    <section class="page">
+      <header class="nav"><div class="brand">GEUMGANGSAN</div><div class="nav-meta"><span>July Peak Season Takeout</span><span>Page 01 · Decision</span></div></header>
+      <main class="content">
+        <div class="hero-grid">
+          <div class="dark-hero">
+            <div class="caption">Core Decision</div>
+            <h1>5만원은<br/>기준가가 아니라<br/>입구입니다.</h1>
+            <p class="lead">기존 6.5만원 구성을 내리지 않습니다.<br/><span class="gold">5만원 실속형을 새로 만들고</span>, 2인·3인·4인 선택지를 정리합니다.</p>
+          </div>
+          <figure class="photo-slot dark hero-photo no-pad">
+            <span class="photo-label">Customer Scene</span>
+            <img src="images/01_packaging_table.png" alt="숙소에서 펼쳐 먹는 대게와 회 포장 구성" loading="lazy"/>
+            <figcaption class="photo-caption">고객은 포장 상품이 아니라,<br/>숙소에서 바로 펼칠 식사 장면을 고릅니다.</figcaption>
+          </figure>
+        </div>
+        <div class="price-strip">
+          <div class="price-tile"><small>Entry</small><strong>50,000원</strong><span>가격 비교 고객을 받는 실속형</span></div>
+          <div class="price-tile main"><small>Main</small><strong>65,000원</strong><span>기존 기준을 지키는 2인 대표 구성</span></div>
+          <div class="price-tile"><small>3 People</small><strong>80,000원</strong><span>여행객·소형 가족 추천 구성</span></div>
+          <div class="price-tile"><small>4 People</small><strong>95,000원</strong><span>가족 단위 고객 선택지</span></div>
+        </div>
+        <div class="proof-lane">
+          <div class="proof-step"><div class="proof-dot"></div><span>가격 비교</span></div>
+          <div class="proof-step"><div class="proof-dot"></div><span>인원 확인</span></div>
+          <div class="proof-step"><div class="proof-dot"></div><span>주문 선택</span></div>
+          <div class="proof-step"><div class="proof-dot"></div><span>숙소 만족</span></div>
+        </div>
+      </main>
+      <footer class="footer"><div class="brand-small">WEPLACE</div><div>가격 인하가 아니라 선택 구조입니다.</div></footer>
+    </section>
+
+    <section class="page">
+      <header class="nav"><div class="brand">GEUMGANGSAN</div><div class="nav-meta"><span>Customer Flow</span><span>Page 02 · Scene</span></div></header>
+      <main class="content center-page">
+        <div class="caption">How Customers Choose</div>
+        <h1>성수기 고객은<br/>오래 읽지 않습니다.</h1>
+        <p class="lead">몇 명이 먹을지, 얼마인지, 숙소에서 펼쳤을 때 괜찮을지만 빠르게 확인합니다.</p>
+        <div class="scene-board">
+          <div class="scene-copy">
+            <h2>포장은 싸게 보이는 것보다<br/>바로 고르게 보이는 것이 먼저입니다.</h2>
+            <p>인원별 기준이 보이면 전화 문의가 줄고, 직원 응대도 같은 말로 맞춰집니다.</p>
+          </div>
+          <figure class="photo-slot compare-photo">
+            <span class="photo-label">Portion Comparison</span>
+            <img src="images/02_people_portion_comparison.png" alt="2인 구성, 3인 구성, 4인 구성 회 포장 비교 이미지" loading="lazy"/>
+            <figcaption class="photo-caption">2인·3인·4인 차이는 말보다 한 장의 비교 이미지가 빠릅니다.</figcaption>
+          </figure>
+        </div>
+        <div class="journey-panel">
+          <div class="journey-labels">
+            <div class="journey-step"><div class="journey-dot"></div><strong>검색</strong><span>근처 포장 확인</span></div>
+            <div class="journey-step"><div class="journey-dot"></div><strong>가격 비교</strong><span>5만원대 진입</span></div>
+            <div class="journey-step"><div class="journey-dot"></div><strong>인원 확인</strong><span>2·3·4인 선택</span></div>
+            <div class="journey-step"><div class="journey-dot"></div><strong>사진 확인</strong><span>양과 구성 판단</span></div>
+            <div class="journey-step"><div class="journey-dot"></div><strong>주문</strong><span>네이버 선택</span></div>
+            <div class="journey-step"><div class="journey-dot"></div><strong>숙소 식사</strong><span>열었을 때 만족</span></div>
+            <div class="journey-step final"><div class="journey-dot"></div><strong>재주문·소개</strong><span>다음 선택 이유</span></div>
+          </div>
+        </div>
+      </main>
+      <footer class="footer"><div class="brand-small">WEPLACE</div><div>고객의 망설임을 줄이면 주문이 쉬워집니다.</div></footer>
+    </section>
+
+    <section class="page">
+      <header class="nav"><div class="brand">GEUMGANGSAN</div><div class="nav-meta"><span>Strategic Choice</span><span>Page 03 · Question</span></div></header>
+      <main class="content">
+        <div class="decision-wrap">
+          <div class="caption">Decision Point</div>
+          <h1>할인으로 기억될 것인가,<br/>쉬운 선택으로 기억될 것인가?</h1>
+          <div class="underline"></div>
+          <div class="decision-grid">
+            <article class="decision-card">
+              <div><div class="label">Option A</div><h2>기존 상품<br/>가격 인하</h2></div>
+              <p>당장은 저렴해 보입니다. 하지만 6.5만원 기준이 약해지고, 이후 가격 회복이 어려워질 수 있습니다.</p>
+            </article>
+            <div class="versus">or</div>
+            <article class="decision-card dark">
+              <div><div class="label">Recommended</div><h2>실속형 신설<br/>+ 인원별 구성</h2></div>
+              <p>5만원은 입구 상품으로 두고, 6.5만원은 2인 대표 구성으로 유지합니다. 객단가와 선택 편의성을 함께 지킵니다.</p>
+            </article>
+          </div>
+          <div class="question-box"><p>“5만원을 기준 가격으로 만들지 말고,<br/>5만원부터 시작되는 선택지를 만듭니다.”</p></div>
+          <div class="menu-line">
+            <div class="menu-item"><strong>실속 포장 한상</strong><span>50,000원 · 입구 상품</span></div>
+            <div class="menu-item"><strong>2인 대게회상</strong><span>65,000원 · 대표 구성</span></div>
+            <div class="menu-item"><strong>3인 대게회상</strong><span>80,000원 · 추천 구성</span></div>
+            <div class="menu-item"><strong>4인 대게회상</strong><span>95,000원 · 가족 구성</span></div>
+          </div>
+        </div>
+      </main>
+      <footer class="footer"><div class="brand-small">WEPLACE</div><div>방향이 정해지면 메뉴명과 사진 기준이 정해집니다.</div></footer>
+    </section>
+
+    <section class="page">
+      <header class="nav"><div class="brand">GEUMGANGSAN</div><div class="nav-meta"><span>Naver & Packaging</span><span>Page 04 · Co-Build</span></div></header>
+      <main class="content">
+        <div class="split-head">
+          <div><div class="caption">Visible Packaging · Invisible Order Flow</div><h1>보이는 포장과<br/>보이지 않는 주문 흐름</h1></div>
+          <p class="lead">포장 사진과 네이버 주문 화면은 따로 움직이면 안 됩니다. 고객이 보는 이름, 가격, 사진, 실제 포장이 같은 기준으로 이어져야 합니다.</p>
+        </div>
+        <div class="visual-two">
+          <figure class="photo-slot wide-shot">
+            <span class="photo-label">Menu Photo Standard</span>
+            <img src="images/02_people_portion_comparison.png" alt="인원별 포장 구성 비교" loading="lazy"/>
+            <figcaption class="photo-caption">사진은 인원별 차이가 보이게.</figcaption>
+          </figure>
+          <figure class="photo-slot phone-shot">
+            <span class="photo-label">Naver Order Mockup</span>
+            <img src="images/03_naver_order_mockup.png" alt="네이버 주문 화면 목업" loading="lazy"/>
+            <figcaption class="photo-caption">주문 화면은 실속형·2인·3인·4인 기준으로.</figcaption>
+          </figure>
+        </div>
+        <div class="cobuild-wrap">
+          <article class="column-card">
+            <div class="label">Visible Side</div>
+            <h2>보이는 포장</h2>
+            <div class="list">
+              <div class="list-item"><span class="bullet"></span><span>대게와 회가 먼저 보이는 구성</span></div>
+              <div class="list-item"><span class="bullet"></span><span>인원별 양 차이가 보이는 사진</span></div>
+              <div class="list-item"><span class="bullet"></span><span>숙소에서 열었을 때의 첫인상</span></div>
+            </div>
+          </article>
+          <div class="bridge-axis"><div class="line"></div><div class="circle">Connect<br/>to<br/>Order</div><div class="line"></div></div>
+          <article class="column-card dark">
+            <div class="label">Backend Side</div>
+            <h2>보이지 않는 주문 흐름</h2>
+            <div class="list">
+              <div class="list-item"><span class="bullet"></span><span>상품명은 실속형 / 2인 / 3인 / 4인</span></div>
+              <div class="list-item"><span class="bullet"></span><span>가격은 50,000 / 65,000 / 80,000 / 95,000원</span></div>
+              <div class="list-item"><span class="bullet"></span><span>전화 응대도 같은 기준으로 안내</span></div>
+            </div>
+          </article>
+        </div>
+        <div class="bridge">사진은 예쁘게 찍는 것이 아니라, 고객이 덜 묻고 바로 고르게 찍습니다.</div>
+      </main>
+      <footer class="footer"><div class="brand-small">WEPLACE</div><div>포장 이미지를 주문 기준으로 연결합니다.</div></footer>
+    </section>
+
+    <section class="page">
+      <header class="nav"><div class="brand">GEUMGANGSAN</div><div class="nav-meta"><span>Execution</span><span>Page 05 · Observe</span></div></header>
+      <main class="content">
+        <div class="diagnostic-head">
+          <div><div class="caption">First, We Test</div><h1>크게 바꾸기보다,<br/>이번 주에 먼저<br/>확인합니다.</h1></div>
+          <p class="lead">성수기에는 속도가 중요합니다. 메뉴 구조를 먼저 정하고, 샘플을 촬영한 뒤, 2주간 반응만 확인합니다.</p>
+        </div>
+        <div class="lens-layout">
+          <div class="lens-stack">
+            <article class="lens-card"><div class="lens-num">01</div><div><h3>메뉴명·가격 확정</h3><p>실속형, 2인, 3인, 4인 기준으로 상품명을 고정합니다.</p></div></article>
+            <article class="lens-card"><div class="lens-num">02</div><div><h3>샘플 포장 촬영</h3><p>인원별 양 차이와 실제 포장 기대치를 맞춥니다.</p></div></article>
+          </div>
+          <div class="center-lens">
+            <div class="caption">2 Week Check</div>
+            <h2>많이 바꾸지 말고,<br/>반응을 먼저 봅니다.</h2>
+            <p>주문 유입, 포장 문의, 인원별 선택 비율, 객단가만 확인하면 다음 조정 방향이 보입니다.</p>
+          </div>
+          <div class="lens-stack">
+            <article class="lens-card"><div class="lens-num">03</div><div><h3>네이버 주문 반영</h3><p>상품명, 가격, 설명, 사진을 같은 기준으로 올립니다.</p></div></article>
+            <article class="lens-card"><div class="lens-num">04</div><div><h3>응대 문구 통일</h3><p>“몇 분이 드실 예정이세요?” 다음 바로 구성을 안내합니다.</p></div></article>
+            <article class="lens-card"><div class="lens-num">05</div><div><h3>2주 반응 확인</h3><p>잘 팔리는 구성만 남기고 필요한 부분만 조정합니다.</p></div></article>
+          </div>
+        </div>
+        <div class="final-script">
+          <div class="caption">Closing Message</div>
+          <p>이번 제안은 기존 상품을 낮추자는 이야기가 아닙니다. 5만원 상품은 새로 만들고, 기존 대표 구성은 2인 기준으로 유지해 고객이 고르기 쉬운 포장 구조를 만드는 방향입니다.</p>
+        </div>
+      </main>
+      <footer class="footer"><div class="brand-small">WEPLACE</div><div>먼저 바꾸지 않고, 먼저 봅니다.</div></footer>
+    </section>
+  </div>
 </body>
 </html>
